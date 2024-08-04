@@ -1,0 +1,5 @@
+backend/.venv
+backend/__pycache__
+frontend/Dockerfile.dev
+backend/Dockerfile.dev
+docker-compose.dev.yml
