@@ -7,7 +7,7 @@ from datetime import datetime
 async def obtain_app_id(session: aiohttp.ClientSession) -> str:
     async with session.get("https://www.instagram.com") as response:
         response_text = await response.text()
-        appid_match = re.search(r'appId":"(\d*),', response_text)
+        appid_match = re.search(r'appId":(\d*),', response_text)
         if appid_match:
             return appid_match.group(1)
         else:
@@ -36,7 +36,8 @@ async def obtain_session_id(username, password) -> str:
         headers = {
             "x-requested-with": "XMLHttpRequest",
             "referer": "https://www.instagram.com/accounts/login/",
-            "x-csrftoken": csrf
+            "x-csrftoken": csrf,
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
         }
 
         async with session.post("https://www.instagram.com/accounts/login/ajax/", data=payload, headers=headers) as response:
@@ -71,7 +72,8 @@ async def obtain_unfollowers(session_id: str) -> dict:
 
     headers = {
         "Accept-Language": "en-US,en;q=0.9",
-        "X-Requested-With": "XMLHttpRequest"
+        "X-Requested-With": "XMLHttpRequest",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
     }
 
     followers_url = f"https://www.instagram.com/api/v1/friendships/{user_id}/followers/"

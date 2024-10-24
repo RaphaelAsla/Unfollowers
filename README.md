@@ -1,4 +1,13 @@
-```
+# Unfollowers
+
+<p align="center">
+  <img src="images/image_0.png" width="500">
+  <img src="images/image_1.png" width="500">
+</p>
+
+## Starting the app
+```bash
 docker-compose up --build
 ```
-Site is hosted at 127.0.0.0:80
+<br>
+Site is hosted at 127.0.0.0:3000
