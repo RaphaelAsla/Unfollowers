@@ -1,7 +1,6 @@
 # Unfollowers
 
 <p align="center">
-  <img src="images/image_0.png" width="500">
   <img src="images/image_1.png" width="500">
 </p>
 
